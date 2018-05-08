@@ -1,0 +1,8 @@
+mock
+pylint
+pytest
+pytest-cov
+pytest-xdist
+sphinx
+setuptools
+diff-cover
