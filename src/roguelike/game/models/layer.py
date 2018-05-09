@@ -7,13 +7,13 @@ class Layer:
 
     def get_raw_value(self, x, y):
         """
-        Returns the raw value
-        :param x:
+        Returns the raw value for a cell at the given coordinates.
+        :param x: The x coordinate of the cell.
         :type x: int
-        :param y:
+        :param y: The y coordinate of the cell.
         :type y: int
 
-        :return:
+        :return: The value of the cell.
         :rtype: float
         """
         return self._data[x + (y * self._size)]

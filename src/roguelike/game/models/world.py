@@ -5,13 +5,14 @@ from src.roguelike.game.models import DEFAULT_WORLD_SIZE, LayerName
 
 class World:
 
-    def __init__(self, identity, size):
+    def __init__(self, identity, seed, size):
         self._identity = identity
+        self._seed = seed
         self._size = size
         self._layers = []
 
     @property
-    def identityr(self):
+    def identity(self):
         return self._identity
 
     @property
@@ -31,11 +32,13 @@ class World:
         return self._layers[LayerName.PRECIPITATION.value]
 
     @staticmethod
-    def create(identity=None, size=None):
+    def create(identity=None, seed=None, size=None):
         """
         Static factory method.
         :param identity: The identifier for the new world. (Default: None)
         :type identity: UUID
+        :param seed:
+        :type seed:
         :param size: The size of the world. (Default: None)
         :type size: int
 
@@ -46,4 +49,4 @@ class World:
             identity= uuid.uuid4()
         if not size:
             size = DEFAULT_WORLD_SIZE
-        return World(identity, size)
+        return World(identity, seed, size)

@@ -1,4 +1,4 @@
-from engine import MAX_COMPONENTS
+from src.roguelike.engine import MAX_COMPONENTS
 
 
 class Entity:
@@ -64,6 +64,6 @@ class Entity:
         :return: A new entity instance
         :rtype: Entity
         """
-        if not identity:
+        if not identity and identity != 0:
             raise Exception("Error: Entity id cannot be None.")
         return Entity(identity)

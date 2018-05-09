@@ -1,4 +1,4 @@
-from engine import MAX_ENTITIES
+from src.roguelike.engine import MAX_ENTITIES
 from src.roguelike.engine.entity import Entity
 
 
@@ -19,6 +19,8 @@ class EntityManager:
         :rtype: int
         """
         self._nextIdentity += 1
+        if self._nextIdentity >= MAX_ENTITIES:
+            raise Exception("Error: Entity limit {0} exceeded".format(MAX_ENTITIES))
         entity = Entity.create(self._nextIdentity)
         self._entities[self._nextIdentity] = entity
         return entity.identity
@@ -30,7 +32,7 @@ class EntityManager:
         :type identity: int
         """
         if not self.has_entity(identity):
-            raise Exception('Error: Entity id {0} does not exit'.format(identity))
+            raise Exception("Error: Entity id {0} does not exit".format(identity))
         self._entities[identity] = None
 
     def has_entity(self, identity):
@@ -54,7 +56,7 @@ class EntityManager:
         :rtype: Entity
         """
         if not self.has_entity(identity):
-            raise Exception('Error: Entity id {0} does not exit'.format(identity))
+            raise Exception("Error: Entity id {0} does not exit".format(identity))
         return self._entities[identity]
 
     def attach_component_to_entity(self, identity, component):

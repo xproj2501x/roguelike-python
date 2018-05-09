@@ -71,8 +71,8 @@ class DiamondSquareHeightMap:
 
         :param side:
         :type side: int
-        :param height:
-        :type height: float
+        :param deviation:
+        :type deviation: float
         """
         half_side = int(math.floor(side / 2))
         for x in range(0, self._size - 1, side):
@@ -90,8 +90,8 @@ class DiamondSquareHeightMap:
 
         :param side:
         :type side: int
-        :param height:
-        :type height: float
+        :param deviation:
+        :type deviation: float
         """
         half_side = int(math.floor(side / 2))
         for x in range(0, self._size, half_side):
@@ -132,7 +132,7 @@ class DiamondSquareHeightMap:
         """
         Static factory method
 
-        :return: A new DiamondSquareHeightMap instance.
+        :return: A new diamond square height map instance.
         :rtype: DiamondSquareHeightMap
         """
         return DiamondSquareHeightMap()
