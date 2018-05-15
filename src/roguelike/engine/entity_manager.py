@@ -1,5 +1,6 @@
 from src.roguelike.engine import MAX_ENTITIES
 from src.roguelike.engine.entity import Entity
+from src.roguelike.engine.exceptions import EntityLimitExceeded
 
 
 class EntityManager:
@@ -20,7 +21,7 @@ class EntityManager:
         """
         self._nextIdentity += 1
         if self._nextIdentity >= MAX_ENTITIES:
-            raise Exception("Error: Entity limit {0} exceeded".format(MAX_ENTITIES))
+            raise EntityLimitExceeded("Error: Entity limit {0} exceeded".format(MAX_ENTITIES))
         entity = Entity.create(self._nextIdentity)
         self._entities[self._nextIdentity] = entity
         return entity.identity

@@ -38,10 +38,16 @@ class QueueTest(unittest.TestCase):
         self.assertEquals(result, element)
 
     def test_peek_empty(self):
+        """
+        Test for Queue.peek method.
+        """
         result = self._queue.peek()
         self.assertEquals(result, False)
 
     def test_clear(self):
+        """
+        Test for Queue.clear method.
+        """
         element = 1
         self._queue.enqueue(element)
         self.assertEquals(self._queue.length, 1)

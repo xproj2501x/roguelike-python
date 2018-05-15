@@ -24,6 +24,18 @@ class Stack:
         """
         return self._data.pop()
 
+    def peek(self):
+        """
+        Returns the first element on the queue if available, otherwise returns false
+
+        :return: the first element in the queue
+        :rtype: object
+        """
+        if self.length:
+            return self._data[0]
+        else:
+            return False
+
     def clear(self):
         self._data = []
 
