@@ -5,8 +5,9 @@ from roguelike.engine import FRAME_DURATION, MAX_FRAME_SKIP
 
 class Engine:
 
-    def __init__(self):
+    def __init__(self, message_service):
         self._pygame = pygame
+        self._message_service = message_service
         self._running = False
         self._last_tick = 0
 
@@ -59,11 +60,13 @@ class Engine:
         """
 
     @staticmethod
-    def create():
+    def create(message_service):
         """
         Static factory method.
+        :param message_service:
+        :type message_service: MessageService
 
         :return: A new engine instance.
         :rtype: Engine
         """
-        return Engine()
+        return Engine(message_service)

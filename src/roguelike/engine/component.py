@@ -1,15 +1,5 @@
 class Component:
 
-    @property
-    def entity(self):
-        """
-        Read only property
-
-        :return: The identity of the parent entity.
-        :rtype: int
-        """
-        return self._entity
-
     def __init__(self, entity, state):
         """
         :param entity: The identity of the parent entity.
@@ -20,6 +10,16 @@ class Component:
 
         self._entity = entity
         self._state = state
+
+    @property
+    def entity(self):
+        """
+        Read only property
+
+        :return: The identity of the parent entity.
+        :rtype: int
+        """
+        return self._entity
 
     def update(self, state):
         """
