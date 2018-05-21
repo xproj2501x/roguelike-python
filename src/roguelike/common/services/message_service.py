@@ -39,7 +39,7 @@ class MessageService:
         """
         subscribers = self._subscriptions[message.subject] if self._subscriptions[message.subject] else []
         for subscriber in subscribers:
-            subscriber(message)
+            subscriber.handle_message(message)
 
     @staticmethod
     def create():

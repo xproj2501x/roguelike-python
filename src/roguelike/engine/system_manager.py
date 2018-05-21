@@ -24,6 +24,7 @@ class SystemManager:
     def create(message_service):
         """
         Static factory method.
+
         :param message_service:
         :type message_service: MessageService
 

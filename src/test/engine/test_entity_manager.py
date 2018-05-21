@@ -31,6 +31,7 @@ class EntityManagerTest(unittest.TestCase):
         for x in range(1, 255):
             self._entity_manager.create_entity()
         with self.assertRaises(Exception) as entity_manager:
+            self._entity_manager.create_entity()
             self.assertEquals(entity_manager.exception, "Error: Entity limit 255 exceeded")
 
     def test_destroy_entity(self):

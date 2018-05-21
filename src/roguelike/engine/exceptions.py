@@ -8,3 +8,9 @@ class EntityLimitExceeded(EngineException):
     pass
 
 
+class EntityNotFound(EngineException):
+    pass
+
+
+class ComponentNotFound(EngineException):
+    pass
